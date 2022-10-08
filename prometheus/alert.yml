@@ -1,0 +1,11 @@
+groups:
+- name: haqq_node_group
+  rules:
+  - alert: ContainerFailing
+    expr: 'go_memstats_gc_sys_bytes >= 10'
+    for: 1m
+    labels:
+      severity: error
+    annotations:
+      summary: "{{ $labels.instance }} is mem overflow"
+      description: "Alarm to much memory"

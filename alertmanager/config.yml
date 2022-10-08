@@ -1,0 +1,19 @@
+route:
+  receiver: 'telegram'
+  group_wait: 30s
+  group_interval: 5m
+  repeat_interval: 4h
+  group_by: [alertname, instance, container_name]
+
+receivers:
+  - name: 'telegram'
+    telegram_configs:
+      - send_resolved: true
+        api_url: 'https://api.telegram.org'
+        bot_token: '5714074649:AAGN1WjiogIJPHRauWikJJ99YfhjQmFZVq'
+        chat_id: -82536953
+        parse_mode: 'Markdown'
+        message: >
+          !!!! Alerts Firing !!!! {{ .Labels.alertname }}
+
+       
