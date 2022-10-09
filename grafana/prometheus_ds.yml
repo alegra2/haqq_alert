@@ -2,5 +2,5 @@ datasources:
 - name: Prometheus
   access: proxy
   type: prometheus
-  url: http://localhost:9110
+  url: http://77.232.36.235:9110
   isDefault: true
